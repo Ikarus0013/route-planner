@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f5f2ec;
+  --card: #fffdf9;
+  --ink: #1c1b19;
+  --muted: #6f6a61;
+  --line: #e4ded3;
+  --accent: #1f4d3f;
+  --accent-soft: #e3ece7;
+  --flight: #3d5afe;
+  --bus: #0e9f6e;
+  --train: #d97706;
+  --ferry: #0891b2;
+  --car: #db2777;
+  --transit: #8a8578;
+  --warn: #b45309;
+  --danger: #be123c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #141412;
+    --card: #1c1c19;
+    --ink: #f1ede4;
+    --muted: #a39d91;
+    --line: #2f2e2a;
+    --accent: #8fd1b5;
+    --accent-soft: #1f2d27;
+    --flight: #7c8cff;
+    --bus: #34d399;
+    --train: #fbbf24;
+    --ferry: #22d3ee;
+    --car: #f472b6;
+    --transit: #8f897d;
+    --warn: #fbbf24;
+    --danger: #fb7185;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-flight: var(--flight);
+  --color-bus: var(--bus);
+  --color-train: var(--train);
+  --color-ferry: var(--ferry);
+  --color-car: var(--car);
+  --color-transit: var(--transit);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-instrument-serif);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in oklab, var(--transit) 35%, transparent) 0 3px,
+    transparent 3px 7px
+  );
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, var(--line) 0%, var(--card) 50%, var(--line) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+input[type="range"] {
+  accent-color: var(--accent);
+}
